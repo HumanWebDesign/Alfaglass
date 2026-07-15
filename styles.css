@@ -902,7 +902,9 @@ p {
 }
 
 .project-caption {
-  min-height: 100px;
+  display: flex;
+  min-height: 142px;
+  flex-direction: column;
   padding: 1rem 1.1rem 1.15rem;
   opacity: 0.48;
   transition: opacity 220ms ease;
@@ -924,20 +926,39 @@ p {
 }
 
 .project-card-trigger {
-  position: absolute;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.55rem 0.8rem;
+  color: var(--brand-action);
+  background: rgba(0, 129, 180, 0.04);
+  border: 1px solid rgba(0, 129, 180, 0.5);
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1;
   cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.project-card-trigger:hover {
+  color: var(--white);
+  background: var(--brand-action);
+  border-color: var(--brand-action);
+  box-shadow: 0 8px 18px rgba(0, 104, 143, 0.2);
+  transform: translateY(-1px);
+}
+
+.project-card-trigger:active {
+  transform: scale(0.97);
 }
 
 .project-card-trigger:focus-visible {
-  outline: 4px solid #5bd4ff;
-  outline-offset: -6px;
+  outline: 3px solid rgba(0, 129, 180, 0.34);
+  outline-offset: 3px;
 }
 
 .project-main-nav {
