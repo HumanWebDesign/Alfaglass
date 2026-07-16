@@ -119,8 +119,19 @@ p {
 }
 
 :focus-visible {
-  outline: 3px solid #52c8f4;
-  outline-offset: 4px;
+  outline: 3px solid #1e293b;
+  outline-offset: 2px;
+}
+
+/* En superficies oscuras se invierte el foco para conservar contraste WCAG. */
+.hero :focus-visible,
+.colores-section :focus-visible,
+.benefits :focus-visible,
+.anatomy-content :focus-visible,
+.projects :focus-visible,
+.faq-cta-viewport :focus-visible,
+.site-footer :focus-visible {
+  outline-color: #8bdefb;
 }
 
 [hidden] {
@@ -607,6 +618,141 @@ p {
   background: linear-gradient(145deg, #effaff, #ffffff);
 }
 
+/* Nuestros colores: catálogo de acabados para aluminio y PVC */
+.colores-section {
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(73, 201, 247, 0.08), transparent 34%),
+    #0a1820;
+  border-block: 1px solid rgba(139, 213, 239, 0.12);
+}
+
+.colores-shell {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.colores-heading {
+  max-width: 680px;
+}
+
+.colores-heading h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.colores-heading p {
+  margin: 0;
+  color: rgba(214, 236, 244, 0.74);
+  line-height: 1.65;
+}
+
+.colores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 2.35rem) clamp(0.65rem, 2vw, 1.4rem);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.color-item {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+  justify-items: center;
+  color: rgba(235, 246, 250, 0.88);
+  font-size: clamp(0.72rem, 1.3vw, 0.86rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.color-sample {
+  position: relative;
+  display: block;
+  width: clamp(72px, 8vw, 90px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-image: url("assets/img/colores/paleta-colores-alfaglass.png");
+  background-repeat: no-repeat;
+  /* La imagen fuente mide 843 x 164 px; cada muestra ocupa 82 x 82 px. */
+  background-size: 1028.05% 200%;
+  background-position-y: 37.8%;
+  border: 1px solid rgba(226, 232, 240, 0.28);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.3);
+  transition: transform 180ms var(--ease), box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.color-sample::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.color-blanco {
+  background-color: #ffffff;
+  background-position-x: 1.97%;
+  border-color: #e2e8f0;
+}
+
+.color-nogal {
+  background-color: #3e2312;
+  background-position-x: 13.8%;
+}
+
+.color-roble {
+  background-color: #8c5225;
+  background-position-x: 25.89%;
+}
+
+.color-antracita {
+  background-color: #373f43;
+  background-position-x: 38.11%;
+}
+
+.color-negro-schwarz {
+  background-color: #131516;
+  background-position-x: 50.33%;
+}
+
+.color-antracita-espectral {
+  background-color: #241d20;
+  background-position-x: 62.42%;
+}
+
+.color-pirita {
+  background-color: #8f7a54;
+  background-position-x: 74.64%;
+}
+
+.color-spectral-negro {
+  background-color: #34383a;
+  background-position-x: 86.86%;
+}
+
+.color-mountain-oak {
+  background-color: #dfc69f;
+  background-position-x: 99.08%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .color-item:hover .color-sample {
+    border-color: rgba(139, 213, 239, 0.55);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 18px 36px rgba(0, 0, 0, 0.38);
+    transform: translateY(-4px) scale(1.035);
+  }
+}
+
 /* Servicios en escritorio: CTAs alineados al pie de cada fila de tarjetas. */
 @media (min-width: 1024px) {
   .service-grid {
@@ -630,6 +776,10 @@ p {
     max-width: 100%;
     flex: 0 0 auto;
     margin-top: auto;
+  }
+
+  .colores-grid {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
   }
 }
 
@@ -957,8 +1107,8 @@ p {
 }
 
 .project-card-trigger:focus-visible {
-  outline: 3px solid rgba(0, 129, 180, 0.34);
-  outline-offset: 3px;
+  outline: 3px solid #1e293b;
+  outline-offset: 2px;
 }
 
 .project-main-nav {
@@ -1027,11 +1177,119 @@ p {
 
 .project-progress span {
   display: block;
-  width: 20%;
+  width: calc(100% / var(--project-count, 5));
   height: 100%;
   background: #49c9f7;
   transform: translateX(0);
   transition: transform 360ms var(--ease);
+}
+
+/* Instagram: CTA de portafolio y publicaciones oficiales */
+.instagram-showcase {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 7vw, 7rem);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 129, 180, 0.12), transparent 32%),
+    linear-gradient(145deg, #f7fbfc, #e9f4f7);
+}
+
+.instagram-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(520px, 1.22fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.instagram-copy {
+  max-width: 520px;
+}
+
+.instagram-mark {
+  display: grid;
+  width: 48px;
+  aspect-ratio: 1;
+  margin-bottom: 1.2rem;
+  place-items: center;
+  color: var(--white);
+  background: var(--brand-action);
+  border-radius: var(--radius-control);
+  box-shadow: 0 12px 26px rgba(0, 104, 143, 0.22);
+}
+
+.instagram-mark i {
+  font-size: 1.55rem;
+}
+
+.instagram-copy h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.instagram-copy p {
+  max-width: 48ch;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.instagram-button {
+  display: inline-flex;
+  min-height: 46px;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  background: var(--brand-action);
+  border: 1px solid var(--brand-action);
+  border-radius: var(--radius-control);
+  box-shadow: 0 12px 24px rgba(0, 104, 143, 0.2);
+  font-size: 0.88rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 160ms var(--ease), box-shadow 180ms ease;
+}
+
+.instagram-button:hover {
+  background: var(--brand-action-hover);
+  border-color: var(--brand-action-hover);
+  box-shadow: 0 16px 30px rgba(0, 104, 143, 0.28);
+  transform: translateY(-2px);
+}
+
+.instagram-button:active {
+  transform: scale(0.97);
+}
+
+.instagram-button i {
+  font-size: 1.1rem;
+}
+
+.instagram-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
+  align-items: start;
+}
+
+.instagram-embed-card {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.45rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(125, 174, 190, 0.34);
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(5, 36, 48, 0.11);
+}
+
+.instagram-embed-card .instagram-media,
+.instagram-embed-card iframe {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
 }
 
 /* Modal nativo de proyectos */
@@ -1350,6 +1608,13 @@ p {
   outline: 0;
   border-color: var(--brand-action);
   box-shadow: 0 0 0 3px rgba(0, 119, 166, 0.15);
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 3px solid #1e293b;
+  outline-offset: 2px;
 }
 
 .form-field.is-invalid input,
@@ -1770,15 +2035,23 @@ p {
     display: grid;
     max-height: 0;
     overflow: hidden;
+    visibility: hidden;
     opacity: 0;
+    pointer-events: none;
     color: var(--ink);
     background: rgba(255, 255, 255, 0.98);
-    transition: max-height 300ms var(--ease), opacity 220ms ease;
+    transition:
+      max-height 300ms var(--ease),
+      opacity 220ms ease,
+      visibility 0s linear 300ms;
   }
 
   .mobile-menu.is-open {
     max-height: 440px;
+    visibility: visible;
     opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .mobile-menu nav {
@@ -2052,6 +2325,153 @@ p {
   .veka-trust { margin-top: 0.8rem; padding: 0.55rem 0.65rem; }
   .veka-trust p { font-size: 0.78rem; }
   .veka-seal { width: 34px; }
+}
+
+/* Adaptación de las nuevas secciones */
+@media (min-width: 621px) and (max-width: 1023px) {
+  .colores-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  .instagram-layout {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .instagram-copy {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 620px) {
+  .colores-section {
+    padding-block: 3.5rem;
+  }
+
+  .colores-shell {
+    gap: 2.25rem;
+  }
+
+  .colores-heading {
+    text-align: left;
+  }
+
+  .colores-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 0.45rem;
+  }
+
+  .color-item {
+    font-size: 0.72rem;
+  }
+
+  .instagram-showcase {
+    padding-block: 3.6rem;
+  }
+
+  .instagram-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-embed-card {
+    width: min(100%, 540px);
+    justify-self: center;
+  }
+}
+
+/* Proyectos: un solo pliegue visual seguro en escritorio */
+@media (min-width: 1024px) and (min-height: 800px) {
+  .projects {
+    display: block;
+    height: calc(100vh - var(--nav-height, 72px));
+    min-height: 0;
+    max-height: calc(100vh - var(--nav-height, 72px));
+    /* Más aire bajo la navegación sin superar el alto disponible. */
+    padding-top: clamp(2.75rem, 6vh, 4rem);
+    padding-bottom: clamp(0.65rem, 1.4vh, 1rem);
+    overflow: hidden;
+  }
+
+  .projects > .container {
+    display: grid;
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .projects .section-heading {
+    margin-bottom: clamp(0.35rem, 1vh, 0.8rem);
+  }
+
+  .projects .section-heading h2 {
+    margin-bottom: 0.35rem;
+    font-size: clamp(2rem, 5vh, 3.4rem);
+  }
+
+  .projects .section-heading p {
+    margin-bottom: 0;
+    font-size: clamp(0.78rem, 1.55vh, 0.95rem);
+    line-height: 1.4;
+  }
+
+  .projects-carousel {
+    /* Refuerza la jerarquía de la tarjeta central. */
+    --project-active-scale: 1.25;
+    height: 100%;
+    min-height: 0;
+    padding: 0 0 1rem;
+  }
+
+  .project-slide.is-active {
+    /* La navegación usa la misma variable para mantener flechas simétricas. */
+    z-index: 20;
+    transform: translate3d(-50%, -50%, 0) scale(var(--project-active-scale));
+  }
+
+  .projects-track {
+    height: calc(100% - 0.25rem);
+    min-height: 0;
+  }
+
+  .project-slide {
+    width: clamp(11rem, 28vh, 16rem);
+  }
+
+  .project-caption {
+    min-height: clamp(96px, 14vh, 126px);
+    padding: clamp(0.7rem, 1.5vh, 1rem);
+  }
+
+  .project-caption h3 {
+    font-size: clamp(0.96rem, 2.1vh, 1.25rem);
+  }
+
+  .project-caption p {
+    font-size: clamp(0.72rem, 1.5vh, 0.86rem);
+  }
+
+  .project-card-trigger {
+    min-height: 32px;
+    padding: 0.45rem 0.7rem;
+  }
+}
+
+/* Laptops de poca altura: contenido fluido, sin recortes por viewport. */
+@media (min-width: 1024px) and (max-height: 799px) {
+  .projects {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .projects > .container {
+    height: auto;
+    overflow: visible;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
