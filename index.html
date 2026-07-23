@@ -13,10 +13,10 @@
 
     <link rel="preload" href="assets/bg-hero.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
-    <link rel="stylesheet" href="styles.css?v=43">
+    <link rel="stylesheet" href="styles.css?v=44">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-    <script src="script.js?v=21" defer></script>
+    <script src="script.js?v=22" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -476,28 +476,21 @@
         </div>
         </section>
 
-        <!-- Formulario de contacto -->
+        <!-- Contacto directo por WhatsApp -->
         <section class="contact-section" id="cta-final" aria-labelledby="contact-title">
         <div class="container contact-layout">
           <header class="contact-intro reveal">
             <p class="section-kicker">Hablemos de tu proyecto</p>
-            <h2 id="contact-title">Solicita una evaluación técnica</h2>
-            <p>Cuéntanos qué necesitas. Nuestro equipo revisará la solicitud y se pondrá en contacto contigo para coordinar una evaluación.</p>
+            <h2 id="contact-title">Cotiza tu proyecto directamente con nuestro equipo</h2>
+            <p>Escríbenos por WhatsApp para recibir orientación y una cotización según las necesidades de tu espacio.</p>
             <div class="contact-assurance"><i class="ph ph-shield-check" aria-hidden="true"></i><span>Atención en La Araucanía y asesoría especializada.</span></div>
+            <a class="contact-whatsapp-button" href="https://wa.me/56940123743?text=Hola%20Alfaglass%2C%20quisiera%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer">
+              <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+              <span>Cotizar proyecto</span>
+              <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <p class="contact-whatsapp-note">Te responderemos para conocer los detalles de tu proyecto.</p>
           </header>
-          <!-- Agrega tu URL real de Formspree en data-endpoint antes de publicar. -->
-          <form class="contact-form reveal" id="contact-form" data-endpoint="" novalidate>
-            <div class="contact-form-grid">
-              <div class="form-field"><label for="contact-name">Nombre</label><input id="contact-name" name="name" type="text" minlength="2" autocomplete="name" aria-describedby="contact-name-error" required><p class="field-error" id="contact-name-error" aria-live="polite" hidden></p></div>
-              <div class="form-field"><label for="contact-email">Correo electrónico</label><input id="contact-email" name="email" type="email" autocomplete="email" aria-describedby="contact-email-error" required><p class="field-error" id="contact-email-error" aria-live="polite" hidden></p></div>
-              <div class="form-field"><label for="contact-phone">Teléfono</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" pattern="^\+56\s?9\s?\d{4}\s?\d{4}$" aria-describedby="contact-phone-help contact-phone-error" required><p class="field-error" id="contact-phone-error" aria-live="polite" hidden></p></div>
-              <div class="form-field"><label for="contact-service">Tipo de servicio</label><select id="contact-service" name="service" aria-describedby="contact-service-error" required><option value="" selected disabled>Selecciona una solución</option><option>Ventanas de PVC y Termopanel</option><option>Sistemas Correderas</option><option>Ventanas Fijas</option><option>Muro Cortina</option><option>Sistemas Especiales</option></select><p class="field-error" id="contact-service-error" aria-live="polite" hidden></p></div>
-              <div class="form-field contact-message"><label for="contact-message">Mensaje</label><textarea id="contact-message" name="message" rows="4" placeholder="Describe brevemente las medidas, espacios o necesidades de tu proyecto." aria-describedby="contact-message-error" required></textarea><p class="field-error" id="contact-message-error" aria-live="polite" hidden></p></div>
-            </div>
-            <div class="consent-field"><label class="contact-consent" for="contact-consent"><input id="contact-consent" name="consent" type="checkbox" aria-describedby="contact-consent-error" required><span>Acepto los Términos y Condiciones, Garantías, Políticas de Privacidad y Protección de Datos conforme a la legislación chilena vigente.</span></label><p class="field-error" id="contact-consent-error" aria-live="polite" hidden></p></div>
-            <button class="contact-submit" type="submit"><span class="button-label">ENVIAR MENSAJE</span><i class="ph ph-arrow-right submit-arrow" aria-hidden="true"></i><span class="button-spinner" aria-hidden="true"></span></button>
-            <div class="contact-status" id="contact-status" role="status" aria-live="polite" hidden></div>
-          </form>
         </div>
         </section>
       </div>
